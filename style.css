@@ -181,6 +181,7 @@ nav .profile-area {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    gap: 4rem;
 }
 
 nav .profile-area .theme-btn {
