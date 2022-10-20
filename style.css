@@ -15,7 +15,8 @@
     --color-primary-light: rgba(71, 7, 234, 0.2);
     --color-success-light: rgba(34, 202, 75, 0.2);
     --color-danger-light: rgba(255, 67, 54, 0.2);
-    --color-purple-light: rgba(255, 67, 54, 0.2);
+    /* --color-purple-light: rgba(203, 195, 227, 0.2); */
+    --color-purple-light: rgba(207, 159, 255, 0.2);
     /* ************************* */
     --card-padding: 1.6rem;
     --padding-1: 1rem;
@@ -25,6 +26,19 @@
     --border-radius-1: 1rem;
     --border-radius-2: 6px;
 }
+
+
+/* dark theme variables */
+
+.dark-theme {
+    --color-white: #131316;
+    --color-light: #23232a;
+    --color-dark: #ddd;
+    --color-gray-dark: #adacb5;
+}
+
+
+/*  */
 
 * {
     margin: 0;
@@ -130,6 +144,22 @@ small {
 .bg-dark {
     background: #27282f;
     box-shadow: 0 0.8rem 0.8rem rgba(0, 0, 0, 0.2);
+}
+
+.bg-purple-light {
+    background: var( --color-purple-light);
+}
+
+.bg-danger-light {
+    background: var( --color-danger-light);
+}
+
+.bg-primary-light {
+    background: var( --color-primary-light);
+}
+
+.bg-success-light {
+    background: var( --color-success-light);
 }
 
 
@@ -358,7 +388,7 @@ main section.middle .cards .card {
     justify-content: space-between;
     box-shadow: 0 2rem 3rem var(--color-danger-light);
     transition: all 300ms ease;
-    min-width: 24rem;
+    min-width: 19rem;
 }
 
 main section.middle .cards .card:nth-child(2) {
@@ -502,4 +532,200 @@ canvas#chart {
     margin-top: 2rem;
     border-radius: var(--card-border-radius);
     padding: var(--card-padding);
+}
+
+
+/* **********INVESTMENT******* */
+
+main section.right .investments {
+    background: var(--color-white);
+    border-radius: var(--card-border-radius)
+}
+
+main section.right .investments img {
+    width: 2.4rem;
+}
+
+main section.right .investments .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: var(--card-padding);
+    padding-bottom: 0;
+}
+
+main section.right .investments .header a {
+    display: flex;
+    align-items: center;
+    color: var(--color-primary)
+}
+
+main section.right .investments .investment {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: var(--card-padding);
+    border-bottom: 1px solid var(--color-light);
+    transition: all 300ms ease;
+}
+
+main section.right .investments .investment:last-child {
+    border: none;
+}
+
+main section.right .investments .investment:hover {
+    background: var(--color-light);
+    cursor: pointer;
+}
+
+
+/* **********RECENT TRANSACTIONS******* */
+
+main .recent-transactions {
+    margin-top: 2rem;
+}
+
+main .recent-transactions img {
+    width: 2.2rem;
+}
+
+main .recent-transactions .header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+}
+
+main .recent-transactions .header a {
+    display: flex;
+    align-items: center;
+    color: var(--color-primary)
+}
+
+main .recent-transactions .transaction {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.5rem var(--card-padding);
+    border-radius: var(--card-border-radius);
+    transition: all 300ms ease;
+}
+
+main .recent-transactions .transaction:hover {
+    background: var(--color-white);
+    cursor: pointer;
+}
+
+main .recent-transactions .transaction .service {
+    display: flex;
+    gap: 1rem;
+}
+
+main .recent-transactions .transaction .service .icon {
+    padding: var(--padding-2);
+    border-radius: var(--border-radius-1);
+    display: flex;
+    align-items: center;
+}
+
+main .recent-transactions .card-details {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+main .recent-transactions .card-details .card {
+    display: flex;
+    width: 4.6rem;
+    height: 3rem;
+    align-items: center;
+    justify-content: center;
+    border-radius: var(--border-radius-2)
+}
+
+
+/* ===================MEDIA QUERIES FOR TABLETs======= */
+
+@media screen and (max-width:1024px) {
+    nav .search-bar {
+        display: none;
+    }
+    nav .profile-area {
+        gap: 2rem;
+    }
+    nav .profile-area button#menu-btn {
+        display: inline;
+        background: transparent;
+        color: var(--color-dark);
+    }
+    main {
+        grid-template-columns: 1fr;
+    }
+    main aside {
+        position: fixed;
+        top: 0;
+        left: -100%;
+        z-index: 3;
+        background: var(--color-white);
+        width: 22rem;
+        height: 100vh;
+        box-shadow: 2rem 0 2rem var(--color-primary-light);
+        display: none;
+        animation: showSidebar 500ms ease forwards;
+    }
+    @keyframes showSidebar {
+        to {
+            left: 0;
+        }
+    }
+    main aside button#close-btn {
+        display: inline-block;
+        width: 3rem;
+        height: 3rem;
+        position: absolute;
+        top: 1rem;
+        right: 1rem;
+        z-index: 4;
+        background: transparent;
+        color: var(--color-dark)
+    }
+    button:hover {
+        cursor: pointer;
+    }
+    main aside .sidebar {
+        margin-top: 4rem;
+    }
+    main aside .updates {
+        display: none;
+    }
+    main section.middle .cards {
+        grid-template-columns: 1fr 1fr;
+    }
+    main canvas {
+        margin: 3rem 0 1rem;
+    }
+    main section.right .recent-transactions {
+        margin-top: 3rem;
+    }
+}
+
+
+/* ===================MEDIA QUERIES FOR PHONEs======= */
+
+@media screen and (max-width:600px) {
+    nav .profile-area {
+        gap: 2.6rem;
+    }
+    nav .profile h5,
+    nav .profile span {
+        display: none;
+    }
+    main section.middle .cards {
+        grid-template-columns: 1fr;
+    }
+    main section.middle .fast-payment {
+        flex-direction: column;
+        align-items: flex-start;
+        margin-top: 3rem;
+        gap: 1.4rem;
+    }
 }
